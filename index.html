@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Karwa Chauth ❤️_Love</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Georgia, serif;
+      color: #fff7e6;
+      background: linear-gradient(145deg, #090e35, #501039, #160d32);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 7%;
+      background: rgba(0, 0, 0, 0.25);
+      border-bottom: 1px solid #d99b47;
+    }
+
+    .logo {
+      color: #ffd27a;
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 22px;
+    }
+
+    .hero {
+      min-height: 75vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 55px 20px;
+      position: relative;
+    }
+
+    .moon {
+      font-size: 100px;
+      filter: drop-shadow(0 0 30px #ffe8a1);
+      animation: glow 3s infinite alternate;
+    }
+
+    h1 {
+      color: #ffd16c;
+      font-size: clamp(38px, 7vw, 72px);
+      margin: 15px 0;
+      text-shadow: 0 0 25px #a34422;
+    }
+
+    .subtitle {
+      font-size: 22px;
+      margin-bottom: 22px;
+      line-height: 1.7;
+    }
+
+    .decor {
+      font-size: 35px;
+      margin: 18px;
+    }
+
+    .card {
+      max-width: 650px;
+      margin: auto;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 210, 122, 0.6);
+      border-radius: 22px;
+      box-shadow: 0 10px 40px #0005;
+      backdrop-filter: blur(8px);
+    }
+
+    button {
+      border: none;
+      border-radius: 30px;
+      padding: 14px 25px;
+      margin: 10px 5px;
+      font-size: 16px;
+      cursor: pointer;
+      background: linear-gradient(90deg, #ffbd59, #ffe5a0);
+      color: #4a1030;
+      font-weight: bold;
+      transition: transform 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.06);
+    }
+
+    #wish {
+      margin-top: 20px;
+      color: #ffe2a0;
+      font-size: 20px;
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px 12px;
+      color: #ffd27a;
+      border-top: 1px solid #d99b47;
+    }
+
+    .stars {
+      position: absolute;
+      top: 20px;
+      right: 8%;
+      font-size: 25px;
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { opacity: 0.7; }
+      to { opacity: 1; }
+    }
+
+    @media (max-width: 600px) {
+      nav { padding: 18px 5%; }
+      nav a { margin-left: 8px; font-size: 13px; }
+      .logo { font-size: 18px; }
+      .subtitle { font-size: 18px; }
+      .card { padding: 22px 15px; }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="logo">🪔 Karwa Chauth</div>
+    <div>
+      <a href="#home">Home</a>
+      <a href="#wishes">Wishes</a>
+    </div>
+  </nav>
+
+  <main class="hero" id="home">
+    <div class="stars">✨ ⭐ ✨</div>
+
+    <div class="card">
+      <div class="decor">🪔 🌹 🪔</div>
+      <div class="moon">🌕</div>
+
+      <h1>Happy Karwa Chauth</h1>
+
+      <p class="subtitle">
+        A festival of love, trust and togetherness- ❤️
+      </p>
+
+      <p>
+        May the moon bring happiness to your life
+        and strengthen the beautiful bond of love.
+      </p>
+
+      <div class="decor">🌹 💝 🌹</div>
+
+      <div id="wishes">
+        <button onclick="showWish()">Open Your Special Wish ❤️</button>
+        <button onclick="toggleLights()">✨ Toggle Celebration</button>
+      </div>
+
+      <p id="wish"></p>
+    </div>
+  </main>
+
+  <footer>
+    Tradition 🪔 Love ❤️ Togetherness
+    <p style="margin-top: 10px;">Made with ❤️ for Karwa Chauth</p>
+  </footer>
+
+  <script>
+    function showWish() {
+      document.getElementById("wish").innerHTML =
+        "🌹 May your love shine brighter than the moon!<br>" +
+        "Wishing you happiness, good health and endless togetherness. ❤️";
+    }
+
+    let celebrating = false;
+
+    function toggleLights() {
+      celebrating = !celebrating;
+      document.body.style.background = celebrating
+        ? "linear-gradient(145deg, #4b123e, #a52b35, #211044)"
+        : "linear-gradient(145deg, #090e35, #501039, #160d32)";
+    }
+  </script>
+</body>
+</html>
