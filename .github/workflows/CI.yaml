@@ -1,5 +1,5 @@
 
-name: Karwa Chauth Docker CI CD
+name: Docker Image Versioning CI
 
 on:
   push:
@@ -8,7 +8,6 @@ on:
 
 jobs:
   docker-build-push:
-    name: Build and Push Docker Image
     runs-on: ubuntu-latest
 
     steps:
@@ -21,12 +20,22 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+      - name: Generate Docker Image Tags
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ secrets.DOCKERHUB_USERNAME }}/karwa-chauth-app
+          tags: |
+            type=sha,prefix=commit-
+            type=raw,value=latest
+
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v6
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/karwa-chauth-app:latest
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
 
       - name: Pipeline Success
-        run: echo "Docker image pushed successfully!"
+        run: echo "Versioned Docker image pushed successfully!"
